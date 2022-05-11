@@ -9,23 +9,15 @@ import java.util.List;
 public class Cuenta {
 
   private double saldo;
-  private List<Deposito> depositos = new ArrayList<>();
-  private List<Extraccion> extracciones = new ArrayList<>();
-  private double limite;
+  private final List<Deposito> depositos = new ArrayList<>();
+  private final List<Extraccion> extracciones = new ArrayList<>();
+  private final double limite;
 
 
   public Cuenta(double montoInicial,double limite) {
     saldo = montoInicial;
     this.limite=limite;
   }
-
-  public void setDepositos(List<Deposito> movimientos) {
-    this.depositos = movimientos;
-  }
-  public void setExtracciones(List<Extraccion> movimientos) {
-    this.extracciones = movimientos;
-  }
-
 
   public void poner(double cuanto) {
     if (cuanto <= 0) {
