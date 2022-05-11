@@ -1,5 +1,6 @@
 Code Smells:
 1-Las excepciones son un duplicated code, con una sola clase ya sería suficiente.
-2_La clase movimiento utiliza Type test.Para solucionarlo deberíamos hacer a la clase movimiento como interface de la cual hereden Depositar y Extraer.
+2_La clase Movimiento posee dos funciones(sacar y poner plata) que se utilizan de formas diferentes por lo que crearía 2 clases diferentes y no haría una interface. 
 3_El metodo agregateA(Cuenta cuenta) no es necesario.
-_Constructor cuenta() innecesaria
+4_Constructor cuenta() innecesaria
+5_Creo el atributo limite en la cuenta.
