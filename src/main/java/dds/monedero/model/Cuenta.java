@@ -8,12 +8,8 @@ import java.util.List;
 
 public class Cuenta {
 
-  private double saldo = 0;
+  private double saldo;
   private List<Movimiento> movimientos = new ArrayList<>();
-
-  public Cuenta() {
-    saldo = 0;
-  }
 
   public Cuenta(double montoInicial) {
     saldo = montoInicial;
@@ -32,7 +28,7 @@ public class Cuenta {
       throw new CuentaException("Ya excedio los " + 3 + " depositos diarios");
     }
 
-    new Movimiento(LocalDate.now(), cuanto, true).agregateA(this);
+    new Movimiento1(LocalDate.now(), cuanto, true).agregateA(this);
   }
 
   public void sacar(double cuanto) {
@@ -48,22 +44,22 @@ public class Cuenta {
       throw new CuentaException("No puede extraer mas de $ " + 1000
           + " diarios, límite: " + limite);
     }
-    new Movimiento(LocalDate.now(), cuanto, false).agregateA(this);
+    new Movimiento1(LocalDate.now(), cuanto, false).agregateA(this);
   }
 
   public void agregarMovimiento(LocalDate fecha, double cuanto, boolean esDeposito) {
-    Movimiento movimiento = new Movimiento(fecha, cuanto, esDeposito);
+    Movimiento1 movimiento = new Movimiento1(fecha, cuanto, esDeposito);
     movimientos.add(movimiento);
   }
 
   public double getMontoExtraidoA(LocalDate fecha) {
     return getMovimientos().stream()
         .filter(movimiento -> !movimiento.isDeposito() && movimiento.getFecha().equals(fecha))
-        .mapToDouble(Movimiento::getMonto)
+        .mapToDouble(Movimiento1::getMonto)
         .sum();
   }
 
-  public List<Movimiento> getMovimientos() {
+  public List<Movimiento1> getMovimientos() {
     return movimientos;
   }
 
