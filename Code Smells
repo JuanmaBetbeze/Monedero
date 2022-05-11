@@ -1,0 +1,2 @@
+Code Smells:
+1-Las excepciones son un duplicated code, con una sola clase ya sería suficiente.
